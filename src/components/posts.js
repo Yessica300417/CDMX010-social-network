@@ -11,7 +11,8 @@ export function posts (target) {
     const boton = document.querySelector('.miniboton')
     boton.addEventListener('click',()=>{
         console.log("hola");
-    })
+    location.href= '/createPosts'
+    });
 };
 
 // export const postDom= document.getElementById('createBtn')
