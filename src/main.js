@@ -1,13 +1,18 @@
 //
 import {bienvenida} from './components/welcome.js'
+import {sesion} from './components/logIn.js'
+import {newusers} from './components/signUp.js'
 import {posts} from './components/posts.js'
 import {createPosts} from './components/createposts.js'
+
 
 const appElement =document.getElementById('app')
 
 // router
 const routes = {
     '/' : bienvenida,
+    '/logIn' : sesion,
+    '/signUp' : newusers,
     '/posts' : posts,
     '/createPosts' : createPosts,
   };

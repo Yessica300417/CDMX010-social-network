@@ -3,12 +3,13 @@
 
 export function posts (target) {
     const template = `<div><button type="submit" class="miniboton" id="createBtn">Crear Publicación</button></div>
-            <h2>Bienvenida usted</h2>`;
+                      <h2>Bienvenida usted</h2>`;
             
-    target.innerHTML = template
+           target.innerHTML = template
     
       //
     const boton = document.querySelector('.miniboton')
+    
     boton.addEventListener('click',()=>{
         console.log("hola");
     location.href= '/createPosts'
