@@ -1,6 +1,6 @@
 //
-export function sesion (target){
-   const html= `<div id="admin">
+export function sesion(target) {
+    const html = `<div id="admin">
                 <h1>Iniciar sesión</h1>
                 <form class="form" id="form">
                 <p>Ingresa tu correo electrónico y contraseña</p>
@@ -16,30 +16,33 @@ export function sesion (target){
                 <h5 id="register">Registrate</h5>
                 </div>`
 
-         target.innerHTML= html;
-                 
-   const btn= document.getElementById('btnSesion');
-   const useremail= document.getElementById('useremail');
-   const password= document.getElementById('password');
-   const register= document.getElementById('register');
+    target.innerHTML = html;
 
-    let currentUsers= JSON.parse (localStorage.getItem('text'));
+    const btn = document.getElementById('btnSesion');
+    const useremail = document.getElementById('useremail');
+    const password = document.getElementById('password');
+    const register = document.getElementById('register');
 
-        btn.addEventListener ('click', function (e){
-          e.preventDefault();
-          let users= [...currentUsers,
-            {
-              correo: useremail.value,
-              contraseña: password.value,
-            }
-          ];
-          localStorage.setItem ('text', JSON.stringify (users));
-          location.href='/posts'
-        }); 
+    let currentUsers = JSON.parse(localStorage.getItem('text'));
 
-        register.addEventListener('click', function (e){
-            e.preventDefault();
-            location.href= '/signUp'
-        });
+    if (!currentUsers) {
+        currentUsers = []
+    }
+    btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        let users = [...currentUsers,
+        {
+            correo: useremail.value,
+            contraseña: password.value,
+        }
+        ];
+        localStorage.setItem('text', JSON.stringify(users));
+        location.href = '/posts'
+    });
+
+    register.addEventListener('click', function (e) {
+        e.preventDefault();
+        location.href = '/signUp'
+    });
 
 };

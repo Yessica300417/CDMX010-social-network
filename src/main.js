@@ -4,6 +4,7 @@ import {sesion} from './components/logIn.js'
 import {newusers} from './components/signUp.js'
 import {posts} from './components/posts.js'
 import {createPosts} from './components/createposts.js'
+import {profile} from './components/profile.js'
 
 
 const appElement =document.getElementById('app')
@@ -15,6 +16,7 @@ const routes = {
     '/signUp' : newusers,
     '/posts' : posts,
     '/createPosts' : createPosts,
+    '/profile' : profile,
   };
 
 const welcomeComponent = routes[window.location.pathname];
@@ -29,12 +31,4 @@ welcomeComponent(appElement)
 
     const component = routes[pathname] 
     component(appElement)
-  }
-
-// sesion.addEventListener('click',()=>{
-//   onNavigate('/posts')
-//   // el nodo padre se llama urls y el nodo hijo sesion
-//   // borrar el elmento con el id sesion y crear 2 elementos hijos, uno para cerrar sesion y otro para crear post 
-//   // borras con un remove child
-//   // creas elementos con appenChild
-// })
+  };

@@ -1,32 +1,41 @@
 // leer los post de local storage
-// import {onNavigate} from './main.js'
+export function posts(target) {
+  const template = `<div class="container">
+                    <button type="submit" class="miniboton" id="createBtn">Crear Publicación</button></div>
+                    <h2>Muro</h2>
+                    <div id="printPosts">
+                    </div>
+                    </div>
+                      `;
 
-export function posts (target) {
-    const template = `<div><button type="submit" class="miniboton" id="createBtn">Crear Publicación</button></div>
-                      <h2>Bienvenida usted</h2>`;
-            
-           target.innerHTML = template
-    
-      //
-    const boton = document.querySelector('.miniboton')
-    
-    boton.addEventListener('click',()=>{
-        console.log("hola");
-    location.href= '/createPosts'
+  target.innerHTML = template
+
+  const boton = document.querySelector('.miniboton');
+  const printPosts= document.querySelector('#printPosts');
+  let postsActuales = JSON.parse(localStorage.getItem('publicaciones'));
+  if(!postsActuales){
+     printPosts.innerHTML= `<span>No hay publicaciones</span>`
+  }else {
+    let html= '';
+    postsActuales.forEach(lapublicación => {
+        html += setHtml(lapublicación)
     });
+    printPosts.innerHTML= html
+  }
+
+  console.log(postsActuales,'Yesseeei')
+
+  
+  boton.addEventListener('click', () => {
+    
+    location.href = '/createPosts'
+  });
 };
 
-// export const postDom= document.getElementById('createBtn')
+function setHtml (infoPost) {
+  return `<div class="post">
+          <p>${infoPost.publicaciones}</p>
+          </div>`
 
-// postDom.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     onNavigate('/create-post')
-//     // console.log(postDom);
-//   })
-// export const createBtn= document.querySelector ('button')
-
-// createBtn.addEventListener('click', function(){
-//     onNavigate('/muro')
-// });
-
+}
 
