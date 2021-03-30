@@ -10,8 +10,6 @@ export function sesion(target) {
                 <input type="password" class="form-control" id="password" placeholder="Ingrese contraseña:" required>
                 <h5>¿Olvidaste tu contraseña?</h5>
                 <button type="submit" class="btn btn-outline-success" id=btnSesion>Iniciar</button>
-                <p>ó ingresa con</p>
-                <button>Goggle</button>
                 <p>¿No tienes una cuenta?</p>
                 <h5 id="register">Registrate</h5>
                 </div>`

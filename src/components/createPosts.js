@@ -9,7 +9,7 @@ export function createPosts(target) {
     const btnPost = document.getElementById('btnPost');
     const publication = document.getElementById('publication');
     
-    let postsActuales = JSON.parse(localStorage.getItem('publicaciones'));
+    let postsActuales = JSON.parse(localStorage.getItem('publications'));
 
     if(!postsActuales){
         postsActuales = [];           
@@ -17,12 +17,14 @@ export function createPosts(target) {
 
     btnPost.addEventListener('click', function (e) {
         e.preventDefault();
-        let muro = [...postsActuales,
+        const identifier=(Math.random()*1000).toFixed(0)
+        let wall = [...postsActuales,
         {
-            publicaciones: publication.value,
-        }
+            id: identifier,
+            message: publication.value,
+        } 
         ];
-        localStorage.setItem('publicaciones', JSON.stringify(muro))
+        localStorage.setItem('publications', JSON.stringify(wall))
         location.href = '/posts'
     });
 

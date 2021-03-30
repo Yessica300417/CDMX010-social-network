@@ -1,7 +1,7 @@
 //
 export function newusers (target ){
     const html= `<div id="account">
-                <h2>Registrate</h2>
+                <h1>Registrate</h1>
                 <form class="" id="">
                 <p>Ingrese sus datos para continuar.</p>
                 <h4>Usuario</h4>
@@ -44,4 +44,4 @@ export function newusers (target ){
                   location.href= '/logIn'
                  });
 
-};
+}; 
